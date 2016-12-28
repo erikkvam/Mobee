@@ -15,7 +15,7 @@ Main color is, by association, yellow. Also because yellow is the most related m
 Accent color is blue because of the triadic connection with yellow.
 
 ## Logo
-![Mobee logo](../app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
+![Mobee logo](https://github.com/erikkvam/Mobee/blob/common-consistency/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
 ## Basic Style
 This app follows the basic rules of [Material Design](material.io)
