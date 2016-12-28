@@ -12,3 +12,6 @@ The app is *Mobee* as in merging *movie* and *bee*. Bees because of the app work
 Main color is, by association, yellow. Also because yellow is the most related movie color that could be found (golden globes, oscars, awards, 20th Century Fox, IMDb, Rotten Tomatos...)
 
 Accent color is blue because of the triadic connection with yellow.
+
+## Basic Style
+This app follows the basic rules of [Material Design](material.io)
