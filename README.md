@@ -6,12 +6,16 @@ Branches from master should serve to implement one of the tasks specified by the
 
 Common branches are to be `common-about` and `common-help` for the *About* and *Help* sections, and `common-consistency` for any changes related to consistency of the app (such as color, style, language...)
 
-## Name and color
+## Name
 The app is *Mobee* as in merging *movie* and *bee*. Bees because of the app working hard to provide you sweet honey and such.
 
+## Color
 Main color is, by association, yellow. Also because yellow is the most related movie color that could be found (golden globes, oscars, awards, 20th Century Fox, IMDb, Rotten Tomatos...)
 
 Accent color is blue because of the triadic connection with yellow.
+
+## Logo
+![Mobee logo](../app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
 ## Basic Style
 This app follows the basic rules of [Material Design](material.io)
