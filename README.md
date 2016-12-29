@@ -19,7 +19,8 @@ The logo is the following:
 
 ![Mobee logo](https://github.com/erikkvam/Mobee/blob/common-consistency/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
-It resembles a honeycomb cell and sort of a camera
+It resembles a honeycomb cell and sort of a camera. 
+
 Done with [designapp.io](designapp.io) (I couldn't find a license) and the [Android Asset Studio Laucher Icon Generator](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html#foreground.type=text&foreground.space.trim=1&foreground.space.pad=0.1&foreground.text.text=Mobee&foreground.text.font=Garamond&foreColor=607d8b%2C0&crop=0&backgroundShape=hrect&backColor=ffffff%2C100&effects=none), which is under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/)
 
 ## Basic Style
