@@ -17,7 +17,7 @@ Accent color is blue because of the triadic connection with yellow.
 ## Logo
 The logo is the following:
 
-![Mobee logo](https://github.com/erikkvam/Mobee/blob/common-consistency/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
+![Mobee logo](./app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
 It resembles a honeycomb cell and sort of a camera. 
 
