@@ -3,6 +3,8 @@ package edu.upc.fib.erik.Mobee;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -79,21 +81,38 @@ public class InitialView extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Fragment fragment = new Fragment();
+        Class fragmentClass;
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        switch (id){
+            case R.id.titles:
+                fragmentClass = TitleFragment.class;
+                break;
+            case R.id.search_by_actor:
+                fragmentClass = ActorSearchFragment.class;
+                break;
+            case R.id.add_movie:
+                fragmentClass = AddMovieFragment.class;
+                break;
+            case R.id.about_help:
+                fragmentClass = AboutHelpFragment.class;
+                break;
+            default:
+                fragmentClass = ErrorFragment.class;
         }
 
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_initial_view, fragment).commit();
+
+        item.setChecked(true);
+        setTitle(item.getTitle());
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
