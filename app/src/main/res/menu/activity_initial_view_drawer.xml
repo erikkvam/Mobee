@@ -4,20 +4,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/titles"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_home"
             android:title="@string/titles_fragment_name" />
         <item
             android:id="@+id/search_by_actor"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_search"
             android:title="@string/search_by_actor_fragment_name" />
         <item
             android:id="@+id/add_movie"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_add"
             android:title="@string/add_movie_fragment_name" />
         <item
             android:id="@+id/about_help"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_help"
             android:title="@string/about_help_fragment_name" />
     </group>
-
 </menu>
