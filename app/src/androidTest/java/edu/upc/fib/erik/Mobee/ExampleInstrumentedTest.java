@@ -1,4 +1,4 @@
-package edu.upc.fib.erik.myfilmdatabase;
+package edu.upc.fib.erik.Mobee;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("edu.upc.fib.erik.myfilmdatabase", appContext.getPackageName());
+        assertEquals("edu.upc.fib.erik.Mobee", appContext.getPackageName());
     }
 }
