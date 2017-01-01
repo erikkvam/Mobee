@@ -1,4 +1,4 @@
-package edu.upc.fib.erik.myfilmdatabase;
+package edu.upc.fib.erik.Mobee;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;

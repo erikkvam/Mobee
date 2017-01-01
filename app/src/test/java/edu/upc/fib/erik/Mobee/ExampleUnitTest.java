@@ -1,4 +1,4 @@
-package edu.upc.fib.erik.myfilmdatabase;
+package edu.upc.fib.erik.Mobee;
 
 import org.junit.Test;
 
