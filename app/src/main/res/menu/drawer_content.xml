@@ -3,16 +3,16 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/titles"
-            android:icon="@drawable/ic_home"
+            android:id="@+id/search_by_title"
+            android:icon="@drawable/ic_movie"
             android:title="@string/titles_fragment_name" />
         <item
             android:id="@+id/search_by_actor"
-            android:icon="@drawable/ic_search"
+            android:icon="@drawable/ic_people"
             android:title="@string/search_by_actor_fragment_name" />
         <item
             android:id="@+id/add_movie"
-            android:icon="@drawable/ic_add"
+            android:icon="@drawable/ic_add_black"
             android:title="@string/add_movie_fragment_name" />
         <item
             android:id="@+id/about_help"

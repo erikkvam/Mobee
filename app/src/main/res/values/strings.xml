@@ -1,9 +1,9 @@
 <resources>
     <string name="app_name">Mobee</string>
 
-    <string name="titles_fragment_name">All movies</string>
+    <string name="titles_fragment_name">By title</string>
     <string name="add_movie_fragment_name">Add movie</string>
-    <string name="search_by_actor_fragment_name">Search by actor</string>
+    <string name="search_by_actor_fragment_name">By actor</string>
     <string name="about_help_fragment_name">About and help</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
