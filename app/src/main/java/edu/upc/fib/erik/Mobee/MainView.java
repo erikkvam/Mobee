@@ -56,7 +56,7 @@ public class MainView extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        changeToFragment(new TitleViewFragment());
+        if(savedInstanceState == null) {changeToFragment(new TitleViewFragment());}
     }
 
     @Override
@@ -163,10 +163,5 @@ public class MainView extends AppCompatActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
 
-    }
-
-    @Override
-    public void onFragmentBack() {
-        getSupportFragmentManager().popBackStack();
     }
 }

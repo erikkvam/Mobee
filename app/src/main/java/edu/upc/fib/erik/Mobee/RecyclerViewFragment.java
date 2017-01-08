@@ -33,9 +33,9 @@ public class RecyclerViewFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    private RecyclerView RecyclerView;
-    private RecyclerView.Adapter Adapter;
-    private RecyclerView.LayoutManager LayoutManager;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     private OnFragmentInteractionListener mListener;
 
@@ -69,7 +69,6 @@ public class RecyclerViewFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
 
 
@@ -78,28 +77,22 @@ public class RecyclerViewFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
-        RecyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
-        RecyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(true);
 
         // use a linear layout manager
-        LayoutManager = new LinearLayoutManager(getContext());
-        RecyclerView.setLayoutManager(LayoutManager);
-        List<Film> test = ((MainView) getActivity()).getAllFilms();
+        layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.addItemDecoration(new RecyclerViewDivider(getContext()));
         // specify an adapter (see also next example)
-        Adapter = new MoviesAdapter(((MainView) getActivity()).getAllFilms());
-        RecyclerView.setAdapter(Adapter);
-        return view;
-    }
+        adapter = new MoviesAdapter(((MainView) getActivity()).getAllFilms());
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onPause() {
-        super.onPause();
-        if (mListener != null) {
-            mListener.onFragmentBack();
-        }
+        recyclerView.setAdapter(adapter);
+
+        return view;
     }
 
     @Override
@@ -132,6 +125,5 @@ public class RecyclerViewFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentBack();
     }
 }
