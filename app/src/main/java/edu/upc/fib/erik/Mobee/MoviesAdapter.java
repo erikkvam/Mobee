@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHolder> {
@@ -15,7 +15,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
     private List<Film> moviesList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView title, countryLabel, country, year, directorLabel, director, protagonistLabel, protagonist, rateLabel, rate;
+        public TextView title, country, year, directorLabel, director, protagonistLabel, protagonist, rateLabel, rate;
 
         public MyViewHolder(View view) {
             super(view);
@@ -23,7 +23,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
             country = (TextView) view.findViewById(R.id.country);
             director = (TextView) view.findViewById(R.id.director);
             directorLabel = (TextView) view.findViewById(R.id.directorLabel);
-            year = (TextView) view.findViewById(R.id.year);
+            year = (TextView) view.findViewById(R.id.yearLabel);
             protagonist = (TextView) view.findViewById(R.id.protagonist);
             protagonistLabel = (TextView) view.findViewById(R.id.protagonistLabel);
             rate = (TextView) view.findViewById(R.id.rate);
@@ -32,6 +32,12 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
     }
 
     public MoviesAdapter(List<Film> moviesList) {
+        Collections.sort(moviesList, new Comparator<Film>() {
+            @Override
+            public int compare(Film f1, Film f2) {
+                return ((Integer)f1.getYear()).compareTo(f2.getYear());
+            }
+        });
         this.moviesList = moviesList;
     }
 

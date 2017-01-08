@@ -1,13 +1,144 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="edu.upc.fib.erik.Mobee.AddMovieFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+        <TextView
+            android:text="@string/titleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="26dp"
+            android:id="@+id/titleLabel"
+            tools:text="@string/titleLabel" />
+
+        <TextView
+            android:text="Year:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/yearLabel"
+            android:layout_below="@+id/title"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="28dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginTop="17dp"
+            android:id="@+id/director"
+            android:layout_below="@+id/country"
+            android:layout_alignStart="@+id/country" />
+
+        <TextView
+            android:text="0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/rate"
+            android:layout_alignBaseline="@+id/rateLabel"
+            android:layout_alignBottom="@+id/rateLabel"
+            android:layout_toEndOf="@+id/rateLabel"
+            android:layout_marginStart="12dp" />
+
+        <SeekBar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:id="@+id/rateBar"
+            android:layout_alignTop="@+id/rate"
+            android:layout_toEndOf="@+id/rate" />
+
+        <TextView
+            android:text="Critics Rate:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="23dp"
+            android:id="@+id/rateLabel"
+            android:layout_below="@+id/protagonist"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="Country:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/countrylabel"
+            android:layout_alignBaseline="@+id/country"
+            android:layout_alignBottom="@+id/country"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:text="Director:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/directorLabel"
+            android:layout_alignBaseline="@+id/director"
+            android:layout_alignBottom="@+id/director"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginTop="17dp"
+            android:id="@+id/country"
+            android:layout_below="@+id/year"
+            android:layout_alignStart="@+id/year" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/title"
+            android:singleLine="true"
+            android:inputType="text"
+            android:layout_alignBaseline="@+id/titleLabel"
+            android:layout_alignBottom="@+id/titleLabel"
+            android:layout_centerHorizontal="true" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="4"
+            android:id="@+id/year"
+            android:numeric="integer"
+            android:maxLength="4"
+            android:layout_alignBaseline="@+id/yearLabel"
+            android:layout_alignBottom="@+id/yearLabel"
+            android:layout_alignStart="@+id/title" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:id="@+id/protagonist"
+            android:layout_below="@+id/director"
+            android:layout_alignStart="@+id/director"
+            android:layout_marginTop="17dp" />
+
+        <TextView
+            android:text="Protagonist:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/protagonistLabel"
+            android:layout_alignBaseline="@+id/protagonist"
+            android:layout_alignBottom="@+id/protagonist"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:text="SAVE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:id="@+id/saveButton"
+            android:layout_below="@+id/rateBar"
+            android:layout_centerHorizontal="true"
+            />
+</RelativeLayout>

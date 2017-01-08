@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/country"
         android:layout_alignParentEnd="true"
-        android:id="@+id/year"
+        android:id="@+id/yearLabel"
         style="@style/AppTheme"
         android:textStyle="normal|bold" />
 
