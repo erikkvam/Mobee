@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:clickable="true"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="vertical"
+    style="@style/AppTheme">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/AppTheme"
+        android:textStyle="normal|bold"
+        android:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/country"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/year"
+        style="@style/AppTheme"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/protagonistLabel"
+        android:layout_toEndOf="@+id/protagonistLabel"
+        android:visibility="visible"
+        android:id="@+id/protagonist"
+        style="@style/AppTheme"
+        android:layout_marginLeft="5dp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/country"
+        android:layout_below="@+id/title"
+        android:layout_alignParentStart="true"
+        style="@style/AppTheme"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/director"
+        android:layout_alignBaseline="@+id/directorLabel"
+        android:layout_alignBottom="@+id/directorLabel"
+        android:layout_toEndOf="@+id/directorLabel"
+        android:layout_marginLeft="5dp"
+        android:textStyle="normal|bold"
+        style="@style/AppTheme" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rate"
+        android:visibility="visible"
+        android:layout_alignBaseline="@+id/rateLabel"
+        android:layout_alignBottom="@+id/rateLabel"
+        android:layout_toEndOf="@+id/rateLabel"
+        android:layout_marginLeft="5dp"
+        style="@style/AppTheme"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/directorLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="@string/directorLabel"
+        android:visibility="visible"
+        android:layout_below="@+id/country"
+        android:layout_alignParentStart="true"
+        android:text="@string/directorLabel"
+        style="@style/AppTheme" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/protagonistLabel"
+        tools:text="@string/protagonistLabel"
+        android:visibility="visible"
+        style="@style/AppTheme"
+        android:text="@string/protagonistLabel"
+        android:layout_below="@+id/directorLabel"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        android:id="@+id/rateLabel"
+        tools:text="@string/rateLabel"
+        android:text="@string/rateLabel"
+        style="@style/AppTheme"
+        android:layout_below="@+id/protagonistLabel" />
+
+</RelativeLayout>
+
+
+

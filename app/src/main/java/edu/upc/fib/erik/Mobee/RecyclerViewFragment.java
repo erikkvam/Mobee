@@ -1,23 +1,30 @@
 package edu.upc.fib.erik.Mobee;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+
+import java.util.List;
+import java.util.Random;
 
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link AboutHelpFragment.OnFragmentInteractionListener} interface
+ * {@link RecyclerViewFragment.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link AboutHelpFragment#newInstance} factory method to
+ * Use the {@link RecyclerViewFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class AboutHelpFragment extends Fragment {
+public class RecyclerViewFragment extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -26,10 +33,13 @@ public class AboutHelpFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
 
     private OnFragmentInteractionListener mListener;
 
-    public AboutHelpFragment() {
+    public RecyclerViewFragment() {
         // Required empty public constructor
     }
 
@@ -39,17 +49,18 @@ public class AboutHelpFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment AboutHelpFragment.
+     * @return A new instance of fragment RecyclerViewFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static AboutHelpFragment newInstance(String param1, String param2) {
-        AboutHelpFragment fragment = new AboutHelpFragment();
+    public static RecyclerViewFragment newInstance(String param1, String param2) {
+        RecyclerViewFragment fragment = new RecyclerViewFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -60,18 +71,28 @@ public class AboutHelpFragment extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_about_help, container, false);
-    }
+        View view = inflater.inflate(R.layout.fragment_recycler_view, container, false);
+        recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
 
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        recyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        layoutManager = new LinearLayoutManager(getContext());
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.addItemDecoration(new RecyclerViewDivider(getContext()));
+        // specify an adapter (see also next example)
+        adapter = new MoviesAdapter(((MainView) getActivity()).getAllFilms());
+
+        recyclerView.setAdapter(adapter);
+
+        return view;
     }
 
     @Override
@@ -91,6 +112,7 @@ public class AboutHelpFragment extends Fragment {
         mListener = null;
     }
 
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -103,6 +125,5 @@ public class AboutHelpFragment extends Fragment {
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
     }
 }
