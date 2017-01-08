@@ -17,4 +17,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search_by_year_fragment_name">By year</string>
+    <string name="country">Country:</string>
+    <string name="directorLabel">Directed by</string>
+    <string name="protagonistLabel">Starring</string>
+    <string name="rateLabel">Critics Rate:</string>
 </resources>

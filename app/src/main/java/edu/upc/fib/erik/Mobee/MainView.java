@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -18,12 +19,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import java.util.List;
+
 public class MainView extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, TitleViewFragment.OnFragmentInteractionListener, AddMovieFragment.OnFragmentInteractionListener, ActorSearchFragment.OnFragmentInteractionListener, AboutHelpFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, TitleViewFragment.OnFragmentInteractionListener,
+        AddMovieFragment.OnFragmentInteractionListener, ActorSearchFragment.OnFragmentInteractionListener,
+        AboutHelpFragment.OnFragmentInteractionListener, RecyclerViewFragment.OnFragmentInteractionListener {
+
+    private FilmData filmData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        filmData = new FilmData(this);
+        filmData.open();
+        //initMovieData();
         setContentView(R.layout.main_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -94,6 +105,9 @@ public class MainView extends AppCompatActivity
             case R.id.title_view:
                 changeToFragment(new TitleViewFragment());
                 break;
+            case R.id.recycler_view:
+                changeToFragment(new RecyclerViewFragment());
+                break;
             case R.id.actor_search:
                 changeToFragment(new ActorSearchFragment());
                 break;
@@ -114,16 +128,45 @@ public class MainView extends AppCompatActivity
 
     private void changeToFragment(Fragment input) {
         try {
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.frame_container, input).commit();
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.frame_container, input);
+            transaction.addToBackStack(null);
+            transaction.commit();
         }
         catch (Exception e){
             e.printStackTrace();
         }
     }
 
+    List<Film> getAllFilms() {
+        return filmData.getAllFilms();
+    }
+
+    private void initMovieData() {
+        filmData.createFilm("Titol", "director", "pais", 1995, "protagonista", 5);
+    }
+
+    @Override
+    protected void onResume() {
+        filmData.open();
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        filmData.close();
+        super.onPause();
+    }
+
+
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public void onFragmentBack() {
+        getSupportFragmentManager().popBackStack();
     }
 }
