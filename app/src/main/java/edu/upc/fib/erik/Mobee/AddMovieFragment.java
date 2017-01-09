@@ -2,10 +2,13 @@ package edu.upc.fib.erik.Mobee;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +39,7 @@ public class AddMovieFragment extends Fragment {
     private SeekBar rateBar;
     private TextView rate;
     private OnFragmentInteractionListener mListener;
+    private View mView;
 
     public AddMovieFragment() {
         // Required empty public constructor
@@ -73,24 +77,25 @@ public class AddMovieFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View out = inflater.inflate(R.layout.fragment_add_movie, container, false);
+        View mView = (View) inflater.inflate(R.layout.fragment_add_movie, container, false);
         MainView act = (MainView) getActivity();
         FloatingActionButton fab = (FloatingActionButton) act.findViewById(R.id.fab);
         fab.setVisibility(View.GONE);
         filmData = MainView.getFilmData();
-        saveButton = (Button) out.findViewById(R.id.saveButton);
+        saveButton = (Button) mView.findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 onButtonPressed();
             }
         });
-        rateBar = (SeekBar) out.findViewById(R.id.rateBar);
-        rate = (TextView) out.findViewById(R.id.rate);
+        rateBar = (SeekBar) mView.findViewById(R.id.rateBar);
+        rate = (TextView) mView.findViewById(R.id.rate);
         rateBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             int progress = 0;
             @Override
-            public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
-                progress = progresValue;
+            public void onProgressChanged(SeekBar seekBar, int progressValue, boolean fromUser) {
+                progress = progressValue;
+                rate.setText(String.valueOf(progress*10 / rateBar.getMax()));
             }
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -100,16 +105,34 @@ public class AddMovieFragment extends Fragment {
                 rate.setText(String.valueOf(progress*10 / rateBar.getMax()));
             }
         });
-        return out;
+        return mView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed() {
         MainView act = (MainView) getActivity();
         TextView title = (TextView) act.findViewById(R.id.title);
-        TextView director = (TextView) act.findViewById(R.id.director);
-        TextView country = (TextView) act.findViewById(R.id.country);
+        if (title.getText().toString().equals("")) {
+            Snackbar snackbar = Snackbar
+                    .make(getView(), "Please insert a title.", Snackbar.LENGTH_LONG);
+            snackbar.show();
+            return;
+        }
         TextView year = (TextView) act.findViewById(R.id.year);
+        if (year.getText().toString().equals("")) {
+            Snackbar snackbar = Snackbar
+                    .make(getView(), "Please insert a year.", Snackbar.LENGTH_LONG);
+            snackbar.show();
+            return;
+        }
+        TextView director = (TextView) act.findViewById(R.id.director);
+        if (director.getText().toString().equals("")) {
+            Snackbar snackbar = Snackbar
+                    .make(getView(), "Please insert a director.", Snackbar.LENGTH_LONG);
+            snackbar.show();
+            return;
+        }
+        TextView country = (TextView) act.findViewById(R.id.country);
         TextView protagonist = (TextView) act.findViewById(R.id.protagonist);
         rate = (TextView) act.findViewById(R.id.rate);
         filmData.createFilm(title.getText().toString(), director.getText().toString(), country.getText().toString(),
