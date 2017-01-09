@@ -36,7 +36,6 @@ public class AddMovieFragment extends Fragment {
     private SeekBar rateBar;
     private TextView rate;
     private OnFragmentInteractionListener mListener;
-    private View mView;
 
     public AddMovieFragment() {
         // Required empty public constructor
