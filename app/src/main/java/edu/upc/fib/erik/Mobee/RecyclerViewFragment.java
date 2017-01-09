@@ -1,8 +1,6 @@
 package edu.upc.fib.erik.Mobee;
 
-import android.app.Activity;
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,11 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-
-import java.util.List;
-import java.util.Random;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -110,6 +103,12 @@ public class RecyclerViewFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onResume() {
+        getActivity().setTitle("By year");
+        super.onResume();
     }
 
 

@@ -26,7 +26,7 @@ public class MainView extends AppCompatActivity
         AddMovieFragment.OnFragmentInteractionListener, ActorSearchFragment.OnFragmentInteractionListener,
         AboutHelpFragment.OnFragmentInteractionListener, RecyclerViewFragment.OnFragmentInteractionListener {
 
-    private FilmData filmData;
+    private static FilmData filmData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,7 +128,8 @@ public class MainView extends AppCompatActivity
 
     private void changeToFragment(Fragment input) {
         try {
-
+            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+            fab.setVisibility(View.VISIBLE);
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.frame_container, input);
             transaction.addToBackStack(null);
@@ -142,6 +143,8 @@ public class MainView extends AppCompatActivity
     List<Film> getAllFilms() {
         return filmData.getAllFilms();
     }
+
+    static FilmData getFilmData() {return filmData;}
 
     private void initMovieData() {
         filmData.createFilm("Titol", "director", "pais", 1995, "protagonista", 5);

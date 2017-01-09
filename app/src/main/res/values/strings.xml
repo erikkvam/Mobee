@@ -22,4 +22,5 @@
     <string name="directorLabel">Directed by</string>
     <string name="protagonistLabel">Starring</string>
     <string name="rateLabel">Critics Rate:</string>
+    <string name="titleLabel">Title:</string>
 </resources>
