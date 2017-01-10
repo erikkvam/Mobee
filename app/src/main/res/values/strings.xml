@@ -3,6 +3,7 @@
 
     <string name="titles_fragment_name">By title</string>
     <string name="add_movie_fragment_name">Add movie</string>
+    <string name="deleteMovie">Delete movie</string>
     <string name="search_by_actor_fragment_name">By actor</string>
     <string name="about_help_fragment_name">About and help</string>
 
