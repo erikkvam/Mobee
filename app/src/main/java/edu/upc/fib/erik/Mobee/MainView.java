@@ -79,6 +79,8 @@ public class MainView extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
+            FloatingActionButton fab = (FloatingActionButton) this.findViewById(R.id.fab);
+            fab.setVisibility(View.VISIBLE);
             super.onBackPressed();
         }
     }
@@ -135,6 +137,8 @@ public class MainView extends AppCompatActivity
             transaction.replace(R.id.frame_container, input);
             transaction.addToBackStack(null);
             transaction.commit();
+            FloatingActionButton fab = (FloatingActionButton) this.findViewById(R.id.fab);
+            fab.setVisibility(View.VISIBLE);
         }
         catch (Exception e){
             e.printStackTrace();
