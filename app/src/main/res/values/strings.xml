@@ -14,7 +14,7 @@
 
     <string name="action_settings">Settings</string>
     <string name="action_search">Search</string>
-    <string name="search_hint">Search films</string>
+    <string name="search_hint">Search by actor</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -24,4 +24,5 @@
     <string name="protagonistLabel">Starring</string>
     <string name="rateLabel">Critics Rate:</string>
     <string name="titleLabel">Title:</string>
+    <string name="actor_search_hint">Search movies by actor</string>
 </resources>

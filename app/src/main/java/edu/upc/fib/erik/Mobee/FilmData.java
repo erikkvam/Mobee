@@ -29,6 +29,7 @@ public class FilmData {
         dbHelper = new MySQLiteHelper(context);
     }
 
+
     public void open() throws SQLException {
         database = dbHelper.getWritableDatabase();
     }
@@ -153,20 +154,33 @@ public class FilmData {
         Cursor cursor = database.query(MySQLiteHelper.TABLE_FILMS,
                 allColumns, null, null, null, null, MySQLiteHelper.COLUMN_TITLE + " COLLATE NOCASE");
 
-        System.out.println("After moveToFirst, cursor is at " + Integer.toString(cursor.getPosition()));
-        System.out.println();
         cursor.moveToFirst();
-        System.out.println("After moveToFirst, cursor is at " + Integer.toString(cursor.getPosition()));
-        System.out.println();
+
         while (!cursor.isAfterLast()) {
             Film comment = cursorToFilm(cursor);
             comments.add(comment);
             cursor.moveToNext();
-            System.out.println("After moveToNext, cursor is at " + Integer.toString(cursor.getPosition()));
-            System.out.println();
         }
         // make sure to close the cursor
         cursor.close();
         return comments;
+    }
+
+    public List<Film> searchByActor(String query) {
+        List<Film> comments = new ArrayList<>();
+
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_FILMS,
+                allColumns, MySQLiteHelper.COLUMN_TITLE + " LIKE '%' + ? + '%'", new String[]{query}, null, null, null);
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            Film comment = cursorToFilm(cursor);
+            comments.add(comment);
+            cursor.moveToNext();
+        }
+        // make sure to close the cursor
+        cursor.close();
+        return comments;
+
     }
 }

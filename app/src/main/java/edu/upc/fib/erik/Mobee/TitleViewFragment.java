@@ -22,8 +22,6 @@ public class TitleViewFragment extends ListFragment {
 
         List<Film> values = filmData.getFilmTitles();
 
-        // use the SimpleCursorAdapter to show the
-        // elements in a ListView
         ArrayAdapter<Film> adapter = new ArrayAdapter<>(this.getContext(),
                 android.R.layout.simple_list_item_1, values);
         setListAdapter(adapter);

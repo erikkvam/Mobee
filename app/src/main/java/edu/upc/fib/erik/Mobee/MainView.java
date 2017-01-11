@@ -8,11 +8,9 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,7 +20,7 @@ import java.util.List;
 
 public class MainView extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        AddMovieFragment.OnFragmentInteractionListener, ActorSearchFragment.OnFragmentInteractionListener,
+        AddMovieFragment.OnFragmentInteractionListener,
         AboutHelpFragment.OnFragmentInteractionListener, RecyclerViewFragment.OnFragmentInteractionListener,
         DeleteMovieFragment.OnFragmentInteractionListener{
 
@@ -61,13 +59,6 @@ public class MainView extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_activity, menu);
-
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView =
-                (SearchView) MenuItemCompat.getActionView(searchItem);
-
-        // Configure the search info and add any event listeners...
-
         return super.onCreateOptionsMenu(menu);
     }
 
