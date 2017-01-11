@@ -270,7 +270,8 @@ public class DeleteMovieFragment extends ListFragment {
     public void onResume() {
         getActivity().setTitle("Delete movie");
         ListView listView = super.getListView();
-
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab.setVisibility(View.GONE);
         final GestureDetector gestureDetector = new GestureDetector(getContext(), new MyGestureDetector());
 
         View.OnTouchListener gestureListener = new View.OnTouchListener() {
@@ -285,8 +286,6 @@ public class DeleteMovieFragment extends ListFragment {
 
     @Override
     public void onPause() {
-        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
-        fab.setVisibility(View.VISIBLE);
         for (int i = 0; i < toDelete.size(); i++) filmData.deleteFilm(toDelete.poll());
         RecyclerViewFragment.notifyChange();
         super.onPause();
