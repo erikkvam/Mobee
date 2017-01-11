@@ -20,7 +20,7 @@ public class TitleViewFragment extends ListFragment {
         filmData = new FilmData(this.getContext());
         filmData.open();
 
-        List<Film> values = filmData.getAllFilms();
+        List<Film> values = filmData.getFilmTitles();
 
         // use the SimpleCursorAdapter to show the
         // elements in a ListView
