@@ -16,9 +16,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.view.animation.Animation;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -116,20 +114,6 @@ public class DeleteMovieFragment extends ListFragment {
         return out;
 
     }
-    static class AnimationListenerAdapter implements Animation.AnimationListener {
-
-        @Override
-        public void onAnimationEnd(Animation animation) {
-        }
-
-        @Override
-        public void onAnimationRepeat(Animation animation) {
-        }
-
-        @Override
-        public void onAnimationStart(Animation animation) {
-        }
-    }
 
     public void animateRemoval(int position) {
         listView = super.getListView();
@@ -180,7 +164,6 @@ public class DeleteMovieFragment extends ListFragment {
                         ObjectAnimator anim = ObjectAnimator.ofFloat(view, View.TRANSLATION_X, 0, 0);
                         anim.setDuration(MOVE_DURATION);
                         anim.start();
-                        // private void setAnimatorEndAction(Animator animator, final Runnable endAction) {
                         if (endAction != null) {
                             anim.addListener(new AnimatorListenerAdapter() {
                                 @Override
@@ -197,12 +180,7 @@ public class DeleteMovieFragment extends ListFragment {
         });
     }
 
-    public void getSwipeItem(int position) {
-        Toast.makeText(getActivity(),
-                "Swipe to direction" + position,
-                Toast.LENGTH_SHORT).show();
-        animateRemoval(position);
-    }
+    public void getSwipeItem(int position) { animateRemoval(position); }
 
     public void onItemClickListener(int position) {
         if (position < 0) return;
