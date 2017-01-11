@@ -159,6 +159,13 @@ public class AddMovieFragment extends Fragment {
         super.onResume();
     }
 
+    @Override
+    public void onPause() {
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab.setVisibility(View.VISIBLE);
+        super.onPause();
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated

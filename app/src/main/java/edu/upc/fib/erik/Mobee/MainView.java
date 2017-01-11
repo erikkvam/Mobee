@@ -24,7 +24,8 @@ import java.util.List;
 public class MainView extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, TitleViewFragment.OnFragmentInteractionListener,
         AddMovieFragment.OnFragmentInteractionListener, ActorSearchFragment.OnFragmentInteractionListener,
-        AboutHelpFragment.OnFragmentInteractionListener, RecyclerViewFragment.OnFragmentInteractionListener {
+        AboutHelpFragment.OnFragmentInteractionListener, RecyclerViewFragment.OnFragmentInteractionListener,
+        DeleteMovieFragment.OnFragmentInteractionListener{
 
     private static FilmData filmData;
 
@@ -114,6 +115,9 @@ public class MainView extends AppCompatActivity
             case R.id.add_movie:
                 changeToFragment(new AddMovieFragment());
                 break;
+            case R.id.delete_movie:
+                changeToFragment(new DeleteMovieFragment());
+                break;
             case R.id.about_help:
                 changeToFragment(new AboutHelpFragment());
                 break;
@@ -128,8 +132,6 @@ public class MainView extends AppCompatActivity
 
     private void changeToFragment(Fragment input) {
         try {
-            FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-            fab.setVisibility(View.VISIBLE);
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.frame_container, input);
             transaction.addToBackStack(null);
