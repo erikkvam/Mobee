@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHolder> {
+public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.MyViewHolder> {
 
     private FilmData filmData;
     private List<Film> moviesList;
@@ -32,7 +32,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
         }
     }
 
-    public MoviesAdapter(FilmData fData) {
+    public FilmAdapter(FilmData fData) {
         filmData = fData;
         moviesList = filmData.getAllFilms();
         Collections.sort(moviesList, new Comparator<Film>() {

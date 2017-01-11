@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -109,11 +110,12 @@ public class AddMovieFragment extends Fragment {
     public void onButtonPressed() {
         MainView act = (MainView) getActivity();
         TextView title = (TextView) act.findViewById(R.id.title);
+        int cText = ContextCompat.getColor(getContext(), R.color.colorPrimary);
         if (title.getText().toString().equals("")) {
             Snackbar snackbar = Snackbar
                     .make(getView(), "Please insert a title.", Snackbar.LENGTH_LONG);
             TextView textView = (TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
-            textView.setTextColor(Color.YELLOW);
+            textView.setTextColor(cText);
             snackbar.show();
             return;
         }
@@ -122,7 +124,7 @@ public class AddMovieFragment extends Fragment {
             Snackbar snackbar = Snackbar
                     .make(getView(), "Please insert a year.", Snackbar.LENGTH_LONG);
             TextView textView = (TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
-            textView.setTextColor(Color.YELLOW);
+            textView.setTextColor(cText);
             snackbar.show();
             return;
         }
@@ -131,7 +133,7 @@ public class AddMovieFragment extends Fragment {
             Snackbar snackbar = Snackbar
                     .make(getView(), "Please insert a director.", Snackbar.LENGTH_LONG);
             TextView textView = (TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
-            textView.setTextColor(Color.YELLOW);
+            textView.setTextColor(cText);
             snackbar.show();
             return;
         }
