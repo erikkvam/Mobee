@@ -10,12 +10,18 @@ Common branches are to be `common-about` and `common-help` for the *About* and *
 The app is *Mobee* as in merging *movie* and *bee*. Bees because of the app working hard to provide you sweet honey and such.
 
 ## Color
-Main color is, by association, yellow. Also because yellow is the most related movie color that could be found (golden globes, oscars, awards, 20th Century Fox, IMDb, Rotten Tomatos...)
+Main color is, by association, yellow. Also because yellow is the most related movie color that could be found (golden globes, oscars, awards, 20th Century Fox, IMDb, Rotten Tomatos...) and because of the association with bees.
 
 Accent color is blue because of the triadic connection with yellow.
 
 ## Logo
 The logo is the following:
+
+![Mobee logo](./app/src/main/res/mipmap-xxxhdpi/ic_logo.png)
+
+It resembles a honeycomb, for the association with bees and yellow.
+
+The launcher logo uses the horizontally elongated square behind the logo to comply with the [Material Design](material.io) Standards.
 
 ![Mobee logo](./app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
