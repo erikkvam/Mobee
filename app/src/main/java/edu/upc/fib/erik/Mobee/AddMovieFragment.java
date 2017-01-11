@@ -1,6 +1,7 @@
 package edu.upc.fib.erik.Mobee;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -77,7 +78,7 @@ public class AddMovieFragment extends Fragment {
         MainView act = (MainView) getActivity();
         FloatingActionButton fab = (FloatingActionButton) act.findViewById(R.id.fab);
         fab.setVisibility(View.GONE);
-        filmData = MainView.getFilmData();
+        filmData = act.getFilmData();
         saveButton = (Button) mView.findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -111,6 +112,8 @@ public class AddMovieFragment extends Fragment {
         if (title.getText().toString().equals("")) {
             Snackbar snackbar = Snackbar
                     .make(getView(), "Please insert a title.", Snackbar.LENGTH_LONG);
+            TextView textView = (TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
+            textView.setTextColor(Color.YELLOW);
             snackbar.show();
             return;
         }
@@ -118,6 +121,8 @@ public class AddMovieFragment extends Fragment {
         if (year.getText().toString().equals("")) {
             Snackbar snackbar = Snackbar
                     .make(getView(), "Please insert a year.", Snackbar.LENGTH_LONG);
+            TextView textView = (TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
+            textView.setTextColor(Color.YELLOW);
             snackbar.show();
             return;
         }
@@ -125,6 +130,8 @@ public class AddMovieFragment extends Fragment {
         if (director.getText().toString().equals("")) {
             Snackbar snackbar = Snackbar
                     .make(getView(), "Please insert a director.", Snackbar.LENGTH_LONG);
+            TextView textView = (TextView) snackbar.getView().findViewById(android.support.design.R.id.snackbar_text);
+            textView.setTextColor(Color.YELLOW);
             snackbar.show();
             return;
         }
@@ -156,6 +163,8 @@ public class AddMovieFragment extends Fragment {
     @Override
     public void onResume() {
         getActivity().setTitle("Add movie");
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab.setVisibility(View.GONE);
         super.onResume();
     }
 

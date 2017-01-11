@@ -4,11 +4,14 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -18,13 +21,17 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 import static java.lang.Math.abs;
 
@@ -50,7 +57,9 @@ public class DeleteMovieFragment extends ListFragment {
     private ArrayAdapter<Film> adapter;
     private ListView listView;
     Map<Long, Integer> mItemIdTopMap = new HashMap<>();
-    List<Film> moviesList;;
+    List<Film> moviesList;
+    Deque<Film> toDelete;
+    Deque<Integer> toDeleteInt;
     private static final int MOVE_DURATION = 150;
     private int SW_MIN_DISTANCE;
     private int SW_MAX_OFF_PATH;
@@ -100,7 +109,7 @@ public class DeleteMovieFragment extends ListFragment {
         View out = inflater.inflate(R.layout.fragment_delete_movie, container, false);
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         fab.setVisibility(View.GONE);
-        filmData = MainView.getFilmData();
+        filmData = ((MainView)getActivity()).getFilmData();
         moviesList = filmData.getAllFilms();
         Collections.sort(moviesList, new Comparator<Film>() {
             @Override
@@ -110,7 +119,8 @@ public class DeleteMovieFragment extends ListFragment {
         });
         adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, moviesList);
         setListAdapter(adapter);
-
+        toDeleteInt = new ArrayDeque<>();
+        toDelete = new ArrayDeque<>();
         return out;
 
     }
@@ -127,8 +137,8 @@ public class DeleteMovieFragment extends ListFragment {
             }
         }
         // Delete the item from the adapter
-
-        filmData.deleteFilm(moviesList.get(position));
+        toDelete.add(moviesList.get(position));
+        toDeleteInt.add(position);
         moviesList.remove(position);
         adapter.notifyDataSetChanged();
 
@@ -175,6 +185,21 @@ public class DeleteMovieFragment extends ListFragment {
                     }
                 }
                 mItemIdTopMap.clear();
+                Snackbar snackBar = Snackbar
+                        .make(getView(), "Movie successfully deleted.", Snackbar.LENGTH_LONG)
+                        .setAction("UNDO", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Snackbar snackBarU = Snackbar.make(getView(), "Movie is restored!", Snackbar.LENGTH_SHORT);
+                                snackBarU.show();
+                                moviesList.add(toDeleteInt.pollLast(),toDelete.pollLast());
+                                adapter.notifyDataSetChanged();
+                            }
+                        });
+                snackBar.setActionTextColor(Color.CYAN);
+                TextView textView = (TextView) snackBar.getView().findViewById(android.support.design.R.id.snackbar_text);
+                textView.setTextColor(Color.YELLOW);
+                snackBar.show();
                 return true;
             }
         });
@@ -262,6 +287,8 @@ public class DeleteMovieFragment extends ListFragment {
     public void onPause() {
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         fab.setVisibility(View.VISIBLE);
+        for (int i = 0; i < toDelete.size(); i++) filmData.deleteFilm(toDelete.poll());
+        RecyclerViewFragment.notifyChange();
         super.onPause();
     }
 

@@ -27,7 +27,7 @@ public class MainView extends AppCompatActivity
         AboutHelpFragment.OnFragmentInteractionListener, RecyclerViewFragment.OnFragmentInteractionListener,
         DeleteMovieFragment.OnFragmentInteractionListener{
 
-    private static FilmData filmData;
+    private FilmData filmData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +35,6 @@ public class MainView extends AppCompatActivity
 
         filmData = new FilmData(this);
         filmData.open();
-        //initMovieData();
         setContentView(R.layout.main_activity);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -146,11 +145,8 @@ public class MainView extends AppCompatActivity
         return filmData.getAllFilms();
     }
 
-    static FilmData getFilmData() {return filmData;}
+    FilmData getFilmData() {return filmData;}
 
-    private void initMovieData() {
-        filmData.createFilm("Titol", "director", "pais", 1995, "protagonista", 5);
-    }
 
     @Override
     protected void onResume() {

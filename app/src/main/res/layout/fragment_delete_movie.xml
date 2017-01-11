@@ -4,16 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    <view
+            class="edu.upc.fib.erik.Mobee.BackgroundContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listViewBackground">
+        <ListView
+            android:id="@android:id/list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </ListView>
 
-    <ListView
-        android:id="@android:id/list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </ListView>
 
-    <TextView
-        android:id="@android:id/empty"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-    </TextView>
+        <TextView
+            android:id="@android:id/empty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </TextView>
+    </view>
+
 </LinearLayout>
