@@ -6,7 +6,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
@@ -22,7 +21,7 @@ import android.view.View;
 import java.util.List;
 
 public class MainView extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, TitleViewFragment.OnFragmentInteractionListener,
+        implements NavigationView.OnNavigationItemSelectedListener,
         AddMovieFragment.OnFragmentInteractionListener, ActorSearchFragment.OnFragmentInteractionListener,
         AboutHelpFragment.OnFragmentInteractionListener, RecyclerViewFragment.OnFragmentInteractionListener,
         DeleteMovieFragment.OnFragmentInteractionListener{

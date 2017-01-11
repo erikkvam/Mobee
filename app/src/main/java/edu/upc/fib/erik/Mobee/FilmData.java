@@ -3,8 +3,6 @@ package edu.upc.fib.erik.Mobee;
  * FilmData
  * Created by pr_idi on 10/11/16.
  */
-import java.util.ArrayList;
-import java.util.List;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -12,6 +10,9 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class FilmData {
 
@@ -143,5 +144,29 @@ public class FilmData {
         film.setProtagonist((cursor.getString(5)));
         film.setCritics_rate(cursor.getInt(6));
         return film;
+    }
+
+    public List<Film> getFilmTitles() {
+
+        List<Film> comments = new ArrayList<>();
+
+        Cursor cursor = database.query(MySQLiteHelper.TABLE_FILMS,
+                allColumns, null, null, null, null, MySQLiteHelper.COLUMN_TITLE + " COLLATE NOCASE");
+
+        System.out.println("After moveToFirst, cursor is at " + Integer.toString(cursor.getPosition()));
+        System.out.println();
+        cursor.moveToFirst();
+        System.out.println("After moveToFirst, cursor is at " + Integer.toString(cursor.getPosition()));
+        System.out.println();
+        while (!cursor.isAfterLast()) {
+            Film comment = cursorToFilm(cursor);
+            comments.add(comment);
+            cursor.moveToNext();
+            System.out.println("After moveToNext, cursor is at " + Integer.toString(cursor.getPosition()));
+            System.out.println();
+        }
+        // make sure to close the cursor
+        cursor.close();
+        return comments;
     }
 }
