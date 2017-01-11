@@ -81,7 +81,7 @@ public class RecyclerViewFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(new RecyclerViewDivider(getContext()));
         // specify an adapter (see also next example)
-        adapter = new MoviesAdapter(((MainView) getActivity()).getFilmData());
+        adapter = new FilmAdapter(((MainView) getActivity()).getFilmData());
 
         recyclerView.setAdapter(adapter);
 

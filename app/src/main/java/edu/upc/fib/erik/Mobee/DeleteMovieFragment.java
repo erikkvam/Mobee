@@ -11,6 +11,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.GestureDetector;
@@ -191,14 +192,19 @@ public class DeleteMovieFragment extends ListFragment {
                             @Override
                             public void onClick(View view) {
                                 Snackbar snackBarU = Snackbar.make(getView(), "Movie is restored!", Snackbar.LENGTH_SHORT);
+                                TextView textView = (TextView) snackBarU.getView().findViewById(android.support.design.R.id.snackbar_text);
+                                int cText = ContextCompat.getColor(getContext(), R.color.colorPrimary);
+                                textView.setTextColor(cText);
                                 snackBarU.show();
                                 moviesList.add(toDeleteInt.pollLast(),toDelete.pollLast());
                                 adapter.notifyDataSetChanged();
                             }
                         });
-                snackBar.setActionTextColor(Color.CYAN);
+                int cUndo = ContextCompat.getColor(getContext(), R.color.colorAccent);
+                snackBar.setActionTextColor(cUndo);
                 TextView textView = (TextView) snackBar.getView().findViewById(android.support.design.R.id.snackbar_text);
-                textView.setTextColor(Color.YELLOW);
+                int cText = ContextCompat.getColor(getContext(), R.color.colorPrimary);
+                textView.setTextColor(cText);
                 snackBar.show();
                 return true;
             }
