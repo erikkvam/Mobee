@@ -32,7 +32,7 @@ public class ActorSearchFragment extends ListFragment {
             @Override
             public void onClick(View v) {
                 SearchView searchTextView = (SearchView) v;
-                String query = (String) searchTextView.getQuery();
+                String query = searchTextView.getQuery().toString();
 
                 filmData = new FilmData(getContext());
                 filmData.open();
@@ -44,6 +44,7 @@ public class ActorSearchFragment extends ListFragment {
                 setListAdapter(adapter);
             }
         });
+        searchView.setIconified(false);
     }
 
     @Override
