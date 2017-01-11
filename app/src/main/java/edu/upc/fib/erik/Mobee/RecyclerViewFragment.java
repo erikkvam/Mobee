@@ -27,7 +27,7 @@ public class RecyclerViewFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private static RecyclerView.Adapter adapter;
     private RecyclerView.LayoutManager layoutManager;
 
     private OnFragmentInteractionListener mListener;
@@ -81,11 +81,15 @@ public class RecyclerViewFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.addItemDecoration(new RecyclerViewDivider(getContext()));
         // specify an adapter (see also next example)
-        adapter = new MoviesAdapter(((MainView) getActivity()).getAllFilms());
+        adapter = new MoviesAdapter(((MainView) getActivity()).getFilmData());
 
         recyclerView.setAdapter(adapter);
 
         return view;
+    }
+
+    public static void notifyChange() {
+        if (adapter != null) adapter.notifyDataSetChanged();
     }
 
     @Override
