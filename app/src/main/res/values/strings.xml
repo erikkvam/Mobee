@@ -25,4 +25,5 @@
     <string name="rateLabel">Critics Rate:</string>
     <string name="titleLabel">Title:</string>
     <string name="actor_search_hint">Search movies by actor</string>
+    <string name="no_results">No results to your query, try something else\n\n(I could not connect the Searchable Intent)</string>
 </resources>
