@@ -16,7 +16,6 @@ import java.util.List;
  * A simple {@link ListFragment} subclass.
  */
 public class ActorSearchFragment extends ListFragment {
-    private FilmData filmData;
     private SearchView searchView;
 
     public ActorSearchFragment() {
@@ -28,11 +27,14 @@ public class ActorSearchFragment extends ListFragment {
         super.onCreate(savedInstanceState);
         searchView = new SearchView(this.getContext());
         searchView.setOnSearchClickListener(new View.OnClickListener() {
+
+            private FilmData filmData;
             @Override
             public void onClick(View v) {
                 SearchView searchTextView = (SearchView) v;
                 String query = (String) searchTextView.getQuery();
 
+                filmData = new FilmData(getContext());
                 filmData.open();
 
                 List<Film> values = filmData.searchByActor(query);
