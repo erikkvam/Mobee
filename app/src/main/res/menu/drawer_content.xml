@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/title_view"
+            android:icon="@drawable/ic_movie"
+            android:title="@string/titles_fragment_name" />
+        <item
+            android:id="@+id/recycler_view"
+            android:icon="@drawable/ic_year"
+            android:title="@string/search_by_year_fragment_name" />
+        <item
+            android:id="@+id/actor_search"
+            android:icon="@drawable/ic_people"
+            android:title="@string/search_by_actor_fragment_name" />
+        <item
+            android:id="@+id/add_movie"
+            android:icon="@drawable/ic_add_black"
+            android:title="@string/add_movie_fragment_name" />
+        <item
+            android:id="@+id/delete_movie"
+            android:icon="@drawable/ic_delete"
+            android:title="@string/deleteMovie" />
+        <item
+            android:id="@+id/about_help"
+            android:icon="@drawable/ic_help"
+            android:title="@string/about_help_fragment_name" />
+    </group>
+</menu>
