@@ -34,4 +34,5 @@
     <string name="saveButton">GUARDAR</string>
     <string name="aboutQ">Quant a&#8230;</string>
     <string name="aboutA">Mobbe és distribuïda sota llicencia CC BY 3.0</string>
+    <string name="swipe_to_delete">Fes lliscar per esborrar</string>
 </resources>
