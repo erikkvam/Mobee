@@ -3,6 +3,7 @@ package edu.upc.fib.erik.Mobee;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -69,6 +70,8 @@ public class AboutHelpFragment extends Fragment {
     @Override
     public void onResume() {
         getActivity().setTitle(getContext().getString(R.string.about_help_fragment_name));
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab.setVisibility(View.GONE);
         super.onResume();
     }
 
