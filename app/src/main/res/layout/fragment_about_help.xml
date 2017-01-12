@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.upc.fib.erik.Mobee.AboutHelpFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="edu.upc.fib.erik.Mobee.AboutHelpFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -11,80 +11,80 @@
         <!-- TODO: Update blank fragment layout -->
 
         <TextView
+            android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="What is Mobee?"
-            tools:text="What is Mobee?"
-            android:textAppearance="@style/AppTheme"
             android:fontFamily="sans-serif"
-            android:typeface="serif"
+            android:text="@string/what_is_mobee"
+            android:textAppearance="@style/AppTheme"
             android:textSize="18sp"
-            android:id="@+id/textView1" />
+            android:typeface="serif"
+            tools:text="What is Mobee?" />
 
         <TextView
-            android:text="Mobee is an app that let's you manage your movie collection."
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/textView2"
-            tools:text="Mobee is an app that let's you manage your movie collection."
-            android:textSize="18sp" />
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text='OK. I get that. But why "Mobee"?'
-            tools:text='OK. I get that. But why "Mobee"?'
-            android:textAppearance="@style/AppTheme"
-            android:fontFamily="sans-serif"
-            android:typeface="serif"
+            android:text="@string/mobee_is_an_app_that_let_s_you_manage_your_movie_collection"
             android:textSize="18sp"
-            android:id="@+id/textView3" />
+            tools:text="Mobee is an app that let's you manage your movie collection." />
 
         <TextView
-            android:text="Well, that's because &quot;Mobee&quot; is a merging of &quot;movie&quot; and &quot;bee.&quot; Bees because of the app working hard to provide you sweet honey and such. ;-)"
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="@string/ok_i_get_that_but_why_mobee"
+            android:textAppearance="@style/AppTheme"
+            android:textSize="18sp"
+            android:typeface="serif"
+            tools:text='OK. I get that. But why "Mobee"?' />
+
+        <TextView
             android:id="@+id/textView4"
-            tools:text="Well, that's because &quot;Mobee&quot; is a merging of &quot;movie&quot; and &quot;bee.&quot; Bees because of the app working hard to provide you sweet honey and such. ;-)"
-            android:textSize="18sp" />
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cool. Where do I begin?"
-            tools:text="Cool. Where do I begin?"
-            android:textAppearance="@style/AppTheme"
-            android:fontFamily="sans-serif"
-            android:typeface="serif"
+            android:text="@string/well_that_s_because_quot_mobee_quot_is_a_merging_of_quot_movie_quot_and_quot_bee_quot_bees_because_of_the_app_working_hard_to_provide_you_sweet_honey_and_such"
             android:textSize="18sp"
-            android:id="@+id/textView5" />
+            tools:text="Well, that's because &quot;Mobee&quot; is a merging of &quot;movie&quot; and &quot;bee.&quot; Bees because of the app working hard to provide you sweet honey and such. ;-)" />
 
         <TextView
-            android:text='Adding a moving to your collection, obviously. To do that you can either press the button floating a the bottom right of your screen or clicking on "Add movie" on the menu.'
+            android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="@string/cool_where_do_i_begin"
+            android:textAppearance="@style/AppTheme"
+            android:textSize="18sp"
+            android:typeface="serif"
+            tools:text="Cool. Where do I begin?" />
+
+        <TextView
             android:id="@+id/textView6"
-            tools:text='Adding a moving to your collection, obviously. To do that you can either press the button floating a the bottom right of your screen or clicking on "Add movie" on the menu.'
-            android:textSize="18sp" />
-
-        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ugh. I think I made a mistake writing the data. How can I delete  a movie?"
-            tools:text="Ugh. I think I made a mistake writing the data. How can I delete  a movie?"
-            android:textAppearance="@style/AppTheme"
-            android:fontFamily="sans-serif"
-            android:typeface="serif"
+            android:text="@string/adding_a_moving_to_your_collection_obviously_to_do_that_you_can_either_press_the_button_floating_a_the_bottom_right_of_your_screen_or_clicking_on_add_movie_on_the_menu"
             android:textSize="18sp"
-            android:id="@+id/textView7" />
+            tools:text='Adding a moving to your collection, obviously. To do that you can either press the button floating a the bottom right of your screen or clicking on "Add movie" on the menu.' />
 
         <TextView
-            android:text='Relax, we got you covered. Just click on the "Delete movie" item of the menu. There swipe right or left whatever movie entry you want to erase.'
+            android:id="@+id/textView7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:text="@string/ugh_i_think_i_made_a_mistake_writing_the_data_how_can_i_delete_a_movie"
+            android:textAppearance="@style/AppTheme"
+            android:textSize="18sp"
+            android:typeface="serif"
+            tools:text="Ugh. I think I made a mistake writing the data. How can I delete  a movie?" />
+
+        <TextView
             android:id="@+id/textView8"
-            tools:text='Relax, we got you covered. Just click on the "Delete movie" item of the menu. There swipe right or left whatever movie entry you want to erase.'
-            android:textSize="18sp" />
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/relax_we_got_you_covered_just_click_on_the_delete_movie_item_of_the_menu_there_swipe_right_or_left_whatever_movie_entry_you_want_to_erase"
+            android:textSize="18sp"
+            tools:text='Relax, we got you covered. Just click on the "Delete movie" item of the menu. There swipe right or left whatever movie entry you want to erase.' />
 
 
 </LinearLayout>

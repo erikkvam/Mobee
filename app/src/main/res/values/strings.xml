@@ -9,7 +9,7 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="navigation_drawer_header_title">Mobee</string>
+    <string name="navigation_drawer_header_title" translatable="false">Mobee</string>
     <string name="navigation_drawer_header_subtitle">Your movie database</string>
 
     <string name="action_settings">Settings</string>
@@ -17,7 +17,7 @@
     <string name="search_hint">Search by actor</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="search_by_year_fragment_name">By year</string>
     <string name="country">Country:</string>
     <string name="directorLabel">Directed by</string>
@@ -26,4 +26,12 @@
     <string name="titleLabel">Title:</string>
     <string name="actor_search_hint">Search movies by actor</string>
     <string name="no_results">No results to your query, try something else\n\n(I could not connect the Searchable Intent)</string>
+    <string name="what_is_mobee">What is Mobee?</string>
+    <string name="mobee_is_an_app_that_let_s_you_manage_your_movie_collection">Mobee is an app that lets you manage your movie collection.</string>
+    <string name="ok_i_get_that_but_why_mobee">OK. I get that. But why Mobee?</string>
+    <string name="well_that_s_because_quot_mobee_quot_is_a_merging_of_quot_movie_quot_and_quot_bee_quot_bees_because_of_the_app_working_hard_to_provide_you_sweet_honey_and_such">Well, that\'s because \"Mobee\" is a merging of \"movie\" and \"bee.\" Bees because of the app working hard to provide you sweet honey and such. ;-)</string>
+    <string name="cool_where_do_i_begin">Cool. Where do I begin?</string>
+    <string name="adding_a_moving_to_your_collection_obviously_to_do_that_you_can_either_press_the_button_floating_a_the_bottom_right_of_your_screen_or_clicking_on_add_movie_on_the_menu">Adding a movie to your collection, obviously. To do that you can either press the button floating a the bottom right of your screen or clicking on Add movie on the menu.</string>
+    <string name="ugh_i_think_i_made_a_mistake_writing_the_data_how_can_i_delete_a_movie">Ugh. I think I made a mistake writing the data. How can I delete a movie?</string>
+    <string name="relax_we_got_you_covered_just_click_on_the_delete_movie_item_of_the_menu_there_swipe_right_or_left_whatever_movie_entry_you_want_to_erase">Relax, we got you covered. Just click on the Delete movie item of the menu. There swipe right or left whatever movie entry you want to erase.</string>
 </resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mobee</string>
+    <string name="action_search">Buscar</string>
+    <string name="action_settings">Preferències</string>
+    <string name="actor_search_hint">Buscar pel·lícules per actor</string>
+    <string name="add_movie_fragment_name">Afegir pel·lícula</string>
+    <string name="adding_a_moving_to_your_collection_obviously_to_do_that_you_can_either_press_the_button_floating_a_the_bottom_right_of_your_screen_or_clicking_on_add_movie_on_the_menu">Afegint una pel·lícula a la teva col·lecció, per suposat. Ho pots fer amb el botó que flota a la part inferior dreta de la pantalla o clicant a Afegir pel·lícula al menú.</string>
+    <string name="cool_where_do_i_begin">Guai. On començo?</string>
+    <string name="country">País</string>
+    <string name="deleteMovie">Esborrar pel·lícula</string>
+    <string name="directorLabel">Dirigit per</string>
+    <string name="hello_blank_fragment"></string>
+    <string name="mobee_is_an_app_that_let_s_you_manage_your_movie_collection">Mobee és una app que et permet organitzar la teva col·lecció cinematogràfica.</string>
+    <string name="navigation_drawer_close">Tancar el calaix de navegació</string>
+    <string name="navigation_drawer_header_subtitle">La teva col·lecció de pel·lícules</string>
+    <string name="navigation_drawer_open">Obrir el calaix de navegació</string>
+    <string name="no_results">No hi ha resultats per la teva busca, prova alguna altra cosa\n\nNo he pogut connectar al Searchable Intent)</string>
+    <string name="ok_i_get_that_but_why_mobee">D\'acord, ho entenc. Però per què Mobee?</string>
+    <string name="about_help_fragment_name">Informació i ajuda</string>
+    <string name="protagonistLabel">Protagonitzada per</string>
+    <string name="rateLabel">Nota dels crítics</string>
+    <string name="relax_we_got_you_covered_just_click_on_the_delete_movie_item_of_the_menu_there_swipe_right_or_left_whatever_movie_entry_you_want_to_erase">Tranquil, no passa res. Fes clic al botó d\'Esborrar pel·lícula del menú. Allà pots lliscar a dreta o esquerra a la pel·lícula que vulguis esborrar.</string>
+    <string name="search_by_actor_fragment_name">Per actor</string>
+    <string name="search_hint">Busca per actor</string>
+    <string name="search_by_year_fragment_name">Per any</string>
+    <string name="titleLabel">Títol</string>
+    <string name="titles_fragment_name">Per títol</string>
+    <string name="ugh_i_think_i_made_a_mistake_writing_the_data_how_can_i_delete_a_movie">Ups. Crec que m\'he equivocat amb les dades. Com puc esborrar una pel·lícula?</string>
+    <string name="well_that_s_because_quot_mobee_quot_is_a_merging_of_quot_movie_quot_and_quot_bee_quot_bees_because_of_the_app_working_hard_to_provide_you_sweet_honey_and_such">Bé, perquè \"Mobee\" és la fusió de pel·lícula (\"movie\") i abella (\"bee\") en anglès. Abelles perquè l\'app treballa durament per proveïr-te de dolça mel i tal. ;-)</string>
+    <string name="what_is_mobee">Què és Mobee?</string>
+</resources>
