@@ -105,7 +105,9 @@ public class DeleteMovieFragment extends ListFragment {
     }
 
     public void onItemClickListener(int position) {
-        if (position >= 0) Toast.makeText(getActivity(),"Swipe to delete", Toast.LENGTH_SHORT).show();
+        if (position >= 0) {
+            Toast.makeText(getActivity(),getContext().getString(R.string.swipe_to_delete), Toast.LENGTH_SHORT).show();
+        }
     }
 
     public ListView getListView() {
