@@ -31,4 +31,6 @@
     <string name="yearLabel">Año:</string>
     <string name="protagonistLabelAdd">Protagonista:</string>
     <string name="saveButton">GUARDAR</string>
+    <string name="aboutQ">En cuanto a&#8230;</string>
+    <string name="aboutA">Mobee es distribuida bajo licencia CC BY 3.0</string>
 </resources>

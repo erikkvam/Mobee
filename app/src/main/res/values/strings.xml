@@ -38,4 +38,6 @@
     <string name="directorLabelAdd" translatable="false">Director:</string>
     <string name="protagonistLabelAdd">Protagonist:</string>
     <string name="saveButton">SAVE</string>
+    <string name="aboutQ">About&#8230;</string>
+    <string name="aboutA">Mobee is distributed under license CC BY 3.0</string>
 </resources>

@@ -32,4 +32,6 @@
     <string name="yearLabel">Any:</string>
     <string name="protagonistLabelAdd">Protagonista:</string>
     <string name="saveButton">GUARDAR</string>
+    <string name="aboutQ">Quant a&#8230;</string>
+    <string name="aboutA">Mobbe és distribuïda sota llicencia CC BY 3.0</string>
 </resources>
