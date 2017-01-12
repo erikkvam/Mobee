@@ -24,7 +24,8 @@ public class MainView extends AppCompatActivity
         AboutHelpFragment.OnFragmentInteractionListener, RecyclerViewFragment.OnFragmentInteractionListener,
         DeleteMovieFragment.OnFragmentInteractionListener{
 
-    private FilmData filmData;
+    private static FilmData filmData;
+    public static boolean dbMod = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +114,12 @@ public class MainView extends AppCompatActivity
                 changeToFragment(new AboutHelpFragment());
                 break;
         }
-
+        if(dbMod) {
+            for (int i = 0; i < DeleteMovieFragment.toDelete.size(); i++) {
+                filmData.deleteFilm(DeleteMovieFragment.toDelete.poll());
+            }
+            dbMod=false;
+        }
         item.setChecked(true);
         setTitle(item.getTitle());
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.main_activity);

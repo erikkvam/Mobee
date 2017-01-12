@@ -1,7 +1,9 @@
 package edu.upc.fib.erik.Mobee;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ListFragment;
+import android.view.View;
 import android.widget.ArrayAdapter;
 
 import java.util.List;
@@ -30,6 +32,8 @@ public class TitleViewFragment extends ListFragment {
     @Override
     public void onResume() {
         getActivity().setTitle(getContext().getString(R.string.titles_fragment_name));
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab.setVisibility(View.VISIBLE);
         super.onResume();
     }
 }

@@ -2,6 +2,7 @@ package edu.upc.fib.erik.Mobee;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -54,14 +55,13 @@ public class RecyclerViewFragment extends Fragment {
         recyclerView.addItemDecoration(new RecyclerViewDivider(getContext()));
 
         adapter = new FilmAdapter(((MainView) getActivity()).getFilmData());
-
         recyclerView.setAdapter(adapter);
 
         return view;
     }
 
-    public static void notifyChange() {
-        if (adapter != null) adapter.notifyDataSetChanged();
+    public static void notifyChange(int position) {
+        if (adapter != null) adapter.notifyItemRemoved(position);
     }
 
     @Override
@@ -84,6 +84,8 @@ public class RecyclerViewFragment extends Fragment {
     @Override
     public void onResume() {
         getActivity().setTitle(getContext().getString(R.string.search_by_year_fragment_name));
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab.setVisibility(View.VISIBLE);
         super.onResume();
     }
 

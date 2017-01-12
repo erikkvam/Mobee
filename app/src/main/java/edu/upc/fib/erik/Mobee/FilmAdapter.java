@@ -12,7 +12,7 @@ import java.util.List;
 
 public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.MyViewHolder> {
 
-    private FilmData filmData;
+    private static FilmData filmData;
     private List<Film> moviesList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

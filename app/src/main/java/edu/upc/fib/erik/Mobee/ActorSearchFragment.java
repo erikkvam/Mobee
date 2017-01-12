@@ -2,6 +2,7 @@ package edu.upc.fib.erik.Mobee;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ListFragment;
 import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
@@ -67,6 +68,8 @@ public class ActorSearchFragment extends ListFragment {
     @Override
     public void onResume() {
         getActivity().setTitle(getContext().getString(R.string.search_by_actor_fragment_name));
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
+        fab.setVisibility(View.VISIBLE);
         super.onResume();
     }
 }
