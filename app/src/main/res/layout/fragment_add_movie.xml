@@ -57,7 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
-            android:layout_below="@+id/yearLabel"
+            android:layout_below="@+id/directorLabel"
             android:layout_alignParentStart="true" />
 
     <TextView
@@ -65,7 +65,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/protagonistLabel"
-            android:layout_below="@+id/directorLabel"
+            android:layout_below="@+id/countryLabel"
             android:layout_marginTop="35dp" />
             android:layout_alignParentStart="true" />
 
@@ -97,7 +97,7 @@
         android:text="@string/directorLabelAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/countryLabel"
+        android:layout_below="@+id/yearLabel"
         android:layout_marginTop="35dp"
         android:layout_alignParentStart="true" />
 
