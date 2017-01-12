@@ -48,14 +48,7 @@ import static java.lang.Math.abs;
  * create an instance of this fragment.
  */
 public class DeleteMovieFragment extends ListFragment {
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
     private FilmData filmData;
     private ArrayAdapter<Film> adapter;
     List<Film> moviesList;
@@ -79,10 +72,6 @@ public class DeleteMovieFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
         DisplayMetrics dm = getResources().getDisplayMetrics();
         SW_MIN_DISTANCE = (int) (120.0f * dm.densityDpi / 160.0f + 0.5);
         SW_MAX_OFF_PATH = (int) (250.0f * dm.densityDpi / 160.0f + 0.5);
@@ -111,8 +100,7 @@ public class DeleteMovieFragment extends ListFragment {
 
     }
 
-    public void getSwipeItem(int position) {
-        //rowRemoval(position);
+    public void deleteItem(int position) {
         toDelete.add(moviesList.get(position));
         toDeleteInt.add(position);
         moviesList.remove(position);
@@ -154,7 +142,6 @@ public class DeleteMovieFragment extends ListFragment {
 
         @Override
         public boolean onSingleTapUp(MotionEvent e) {
-
             int pos = listView.pointToPosition((int) e.getX(), (int) e.getY());
             onItemClickListener(pos);
             return true;
@@ -162,19 +149,17 @@ public class DeleteMovieFragment extends ListFragment {
 
         @Override
         public boolean onDown(MotionEvent e) {
-
             tmp_pos = listView.pointToPosition((int) e.getX(), (int) e.getY());
             return super.onDown(e);
         }
 
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-            System.out.println("hello world");
             if (abs(e1.getY() - e2.getY()) > SW_MAX_OFF_PATH) return false;
             if (abs(e1.getX() - e2.getX()) > SW_MIN_DISTANCE && abs(velocityX) > SW_THRESHOLD_VELOCITY) {
                 int pos = listView.pointToPosition((int) e1.getX(), (int) e2.getY());
                 if (pos >= 0 && tmp_pos == pos)
-                    getSwipeItem(pos);
+                    deleteItem(pos);
             }
             return false;
         }
@@ -219,7 +204,6 @@ public class DeleteMovieFragment extends ListFragment {
     @Override
     public void onPause() {
         for (int i = 0; i < toDelete.size(); i++) filmData.deleteFilm(toDelete.poll());
-        RecyclerViewFragment.notifyChange();
         super.onPause();
     }
 
