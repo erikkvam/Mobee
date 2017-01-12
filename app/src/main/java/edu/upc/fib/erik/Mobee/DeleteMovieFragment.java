@@ -58,12 +58,9 @@ public class DeleteMovieFragment extends ListFragment {
     private String mParam2;
     private FilmData filmData;
     private ArrayAdapter<Film> adapter;
-    private ListView listView;
-    Map<Long, Integer> mItemIdTopMap = new HashMap<>();
     List<Film> moviesList;
     Deque<Film> toDelete;
     Deque<Integer> toDeleteInt;
-    private static final int MOVE_DURATION = 150;
     private int SW_MIN_DISTANCE;
     private int SW_MAX_OFF_PATH;
     private int SW_THRESHOLD_VELOCITY;
@@ -75,22 +72,8 @@ public class DeleteMovieFragment extends ListFragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment DeleteMovieFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static DeleteMovieFragment newInstance(String param1, String param2) {
-        DeleteMovieFragment fragment = new DeleteMovieFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
+    public static DeleteMovieFragment newInstance() {
+        return new DeleteMovieFragment();
     }
 
     @Override
