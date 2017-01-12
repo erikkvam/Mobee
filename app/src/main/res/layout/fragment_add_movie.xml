@@ -85,10 +85,9 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/country"
-        android:layout_below="@+id/year"
         android:layout_alignBaseline="@+id/countryLabel"
         android:layout_alignBottom="@+id/countryLabel"
-        android:layout_toEndOf="@+id/directorLabel"
+        android:layout_toEndOf="@+id/countryLabel"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp" />
 
@@ -108,7 +107,6 @@
         android:ems="10"
         android:id="@+id/protagonist"
         android:layout_marginLeft="5dp"
-        android:layout_below="@+id/director"
         android:layout_alignBaseline="@+id/protagonistLabel"
         android:layout_alignBottom="@+id/protagonistLabel"
         android:layout_toEndOf="@+id/protagonistLabel"
