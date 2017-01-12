@@ -89,6 +89,7 @@ public class FilmData {
         values.put(MySQLiteHelper.COLUMN_CRITICS_RATE, rate);
 
         // Actual insertion of the data using the values variable
+
         long insertId = database.insert(MySQLiteHelper.TABLE_FILMS, null,
                 values);
 

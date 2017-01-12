@@ -1,10 +1,7 @@
 package edu.upc.fib.erik.Mobee;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
+
 import android.content.Context;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,16 +9,13 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -30,12 +24,8 @@ import java.util.ArrayDeque;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Deque;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
-
-import static edu.upc.fib.erik.Mobee.R.string.deleteMovie;
 import static java.lang.Math.abs;
 
 
@@ -51,9 +41,11 @@ public class DeleteMovieFragment extends ListFragment {
 
     private FilmData filmData;
     private ArrayAdapter<Film> adapter;
-    List<Film> moviesList;
-    Deque<Film> toDelete;
-    Deque<Integer> toDeleteInt;
+    private List<Film> moviesList;
+    public static Deque<Film> toDelete;
+    private Deque<Integer> toDeleteInt;
+    private FloatingActionButton fabUndo;
+
     private int SW_MIN_DISTANCE;
     private int SW_MAX_OFF_PATH;
     private int SW_THRESHOLD_VELOCITY;
@@ -82,8 +74,6 @@ public class DeleteMovieFragment extends ListFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View out = inflater.inflate(R.layout.fragment_delete_movie, container, false);
-        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
-        fab.setVisibility(View.GONE);
         filmData = ((MainView)getActivity()).getFilmData();
         moviesList = filmData.getAllFilms();
         Collections.sort(moviesList, new Comparator<Film>() {
@@ -105,22 +95,9 @@ public class DeleteMovieFragment extends ListFragment {
         toDeleteInt.add(position);
         moviesList.remove(position);
         adapter.notifyDataSetChanged();
-        Snackbar snackBar = Snackbar
-                .make(getView(), "Movie successfully deleted.", Snackbar.LENGTH_LONG)
-                .setAction("UNDO", new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Snackbar snackBarU = Snackbar.make(getView(), "Movie is restored!", Snackbar.LENGTH_SHORT);
-                        TextView textView = (TextView) snackBarU.getView().findViewById(android.support.design.R.id.snackbar_text);
-                        int cText = ContextCompat.getColor(getContext(), R.color.colorPrimary);
-                        textView.setTextColor(cText);
-                        snackBarU.show();
-                        moviesList.add(toDeleteInt.pollLast(),toDelete.pollLast());
-                        adapter.notifyDataSetChanged();
-                    }
-                });
-        int cUndo = ContextCompat.getColor(getContext(), R.color.colorAccent);
-        snackBar.setActionTextColor(cUndo);
+        Snackbar snackBar = Snackbar.make(getView(), "Movie successfully deleted.", Snackbar.LENGTH_LONG);
+        fabUndo.setVisibility(View.VISIBLE);
+        MainView.dbMod = true;
         TextView textView = (TextView) snackBar.getView().findViewById(android.support.design.R.id.snackbar_text);
         int cText = ContextCompat.getColor(getContext(), R.color.colorPrimary);
         textView.setTextColor(cText);
@@ -186,16 +163,30 @@ public class DeleteMovieFragment extends ListFragment {
     @Override
     public void onResume() {
         getActivity().setTitle(getContext().getString(R.string.deleteMovie));
-        ListView listView = super.getListView();
+        toDelete.clear();
+        toDeleteInt.clear();
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         fab.setVisibility(View.GONE);
+        fabUndo = (FloatingActionButton) getActivity().findViewById(R.id.fabUndo);
+        fabUndo.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Snackbar snackBarU = Snackbar.make(getView(), "Movie is restored!", Snackbar.LENGTH_SHORT);
+                TextView textView = (TextView) snackBarU.getView().findViewById(android.support.design.R.id.snackbar_text);
+                int cText = ContextCompat.getColor(getContext(), R.color.colorPrimary);
+                textView.setTextColor(cText);
+                snackBarU.show();
+                moviesList.add(toDeleteInt.pollLast(),toDelete.pollLast());
+                adapter.notifyDataSetChanged();
+                if (toDelete.size() == 0) {MainView.dbMod = false; fabUndo.setVisibility(View.GONE);}
+            }
+        });
         final GestureDetector gestureDetector = new GestureDetector(getContext(), new MyGestureDetector());
-
         View.OnTouchListener gestureListener = new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
                 return gestureDetector.onTouchEvent(event);
             }
         };
+        ListView listView = super.getListView();
         try {listView.setOnTouchListener(gestureListener);}
         catch (Exception e) {System.out.println("ListView not set exception");}
         super.onResume();
