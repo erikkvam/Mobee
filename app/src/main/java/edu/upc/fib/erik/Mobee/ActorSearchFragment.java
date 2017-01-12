@@ -63,4 +63,10 @@ public class ActorSearchFragment extends ListFragment {
     public void onDetach() {
         super.onDetach();
     }
+
+    @Override
+    public void onResume() {
+        getActivity().setTitle(getContext().getString(R.string.search_by_actor_fragment_name));
+        super.onResume();
+    }
 }

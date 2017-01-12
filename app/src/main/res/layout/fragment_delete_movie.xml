@@ -2,17 +2,13 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/listLayout"
     android:orientation="vertical" >
-    <view
-            class="edu.upc.fib.erik.Mobee.BackgroundContainer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/listViewBackground">
         <ListView
             android:id="@android:id/list"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content" >
         </ListView>
 
 
@@ -21,6 +17,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
         </TextView>
-    </view>
 
 </LinearLayout>

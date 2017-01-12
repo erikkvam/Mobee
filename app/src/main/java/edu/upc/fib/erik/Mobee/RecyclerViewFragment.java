@@ -83,7 +83,7 @@ public class RecyclerViewFragment extends Fragment {
 
     @Override
     public void onResume() {
-        getActivity().setTitle("By year");
+        getActivity().setTitle(getContext().getString(R.string.search_by_year_fragment_name));
         super.onResume();
     }
 

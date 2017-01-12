@@ -21,6 +21,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,6 +35,7 @@ import java.util.List;
 import java.util.Map;
 
 
+import static edu.upc.fib.erik.Mobee.R.string.deleteMovie;
 import static java.lang.Math.abs;
 
 
@@ -126,96 +128,36 @@ public class DeleteMovieFragment extends ListFragment {
 
     }
 
-    public void animateRemoval(int position) {
-        listView = super.getListView();
-        int firstVisiblePosition = listView.getFirstVisiblePosition();
-        for (int i = 0; i < listView.getChildCount(); ++i) {
-            View child = listView.getChildAt(i);
-            if (i != position) {
-                int pos = firstVisiblePosition + i;
-                long itemId = adapter.getItemId(pos);
-                mItemIdTopMap.put(itemId, child.getTop());
-            }
-        }
-        // Delete the item from the adapter
+    public void getSwipeItem(int position) {
+        //rowRemoval(position);
         toDelete.add(moviesList.get(position));
         toDeleteInt.add(position);
         moviesList.remove(position);
         adapter.notifyDataSetChanged();
-
-        final ViewTreeObserver observer = listView.getViewTreeObserver();
-        observer.addOnPreDrawListener(new ViewTreeObserver.OnPreDrawListener() {
-            public boolean onPreDraw() {
-                observer.removeOnPreDrawListener(this);
-                boolean firstAnimation = true;
-                int firstVisiblePosition = listView.getFirstVisiblePosition();
-                for (int i = 0; i < listView.getChildCount(); ++i) {
-                    final View child = listView.getChildAt(i);
-                    int position = firstVisiblePosition + i;
-                    long itemId = adapter.getItemId(position);
-                    Integer startTop = mItemIdTopMap.get(itemId);
-                    int top = child.getTop();
-                    if (startTop == null) {
-                        int childHeight = child.getHeight() + listView.getDividerHeight();
-                        startTop = top + (i > 0 ? childHeight : -childHeight);
+        Snackbar snackBar = Snackbar
+                .make(getView(), "Movie successfully deleted.", Snackbar.LENGTH_LONG)
+                .setAction("UNDO", new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Snackbar snackBarU = Snackbar.make(getView(), "Movie is restored!", Snackbar.LENGTH_SHORT);
+                        TextView textView = (TextView) snackBarU.getView().findViewById(android.support.design.R.id.snackbar_text);
+                        int cText = ContextCompat.getColor(getContext(), R.color.colorPrimary);
+                        textView.setTextColor(cText);
+                        snackBarU.show();
+                        moviesList.add(toDeleteInt.pollLast(),toDelete.pollLast());
+                        adapter.notifyDataSetChanged();
                     }
-                    int delta = startTop - top;
-                    if (delta != 0) {
-                        Runnable endA;
-                        if (firstAnimation) endA = new Runnable() {
-                            public void run() {
-                                listView.setEnabled(true);
-                            }
-                        };
-                        else endA = null;
-                        final Runnable endAction = endA;
-                        firstAnimation = false;
-                        View view = getView();
-                        view.animate().setDuration(MOVE_DURATION);
-                        ObjectAnimator anim = ObjectAnimator.ofFloat(view, View.TRANSLATION_X, 0, 0);
-                        anim.setDuration(MOVE_DURATION);
-                        anim.start();
-                        if (endAction != null) {
-                            anim.addListener(new AnimatorListenerAdapter() {
-                                @Override
-                                public void onAnimationEnd(Animator animation) {
-                                    endAction.run();
-                                }
-                            });
-                        }
-                    }
-                }
-                mItemIdTopMap.clear();
-                Snackbar snackBar = Snackbar
-                        .make(getView(), "Movie successfully deleted.", Snackbar.LENGTH_LONG)
-                        .setAction("UNDO", new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Snackbar snackBarU = Snackbar.make(getView(), "Movie is restored!", Snackbar.LENGTH_SHORT);
-                                TextView textView = (TextView) snackBarU.getView().findViewById(android.support.design.R.id.snackbar_text);
-                                int cText = ContextCompat.getColor(getContext(), R.color.colorPrimary);
-                                textView.setTextColor(cText);
-                                snackBarU.show();
-                                moviesList.add(toDeleteInt.pollLast(),toDelete.pollLast());
-                                adapter.notifyDataSetChanged();
-                            }
-                        });
-                int cUndo = ContextCompat.getColor(getContext(), R.color.colorAccent);
-                snackBar.setActionTextColor(cUndo);
-                TextView textView = (TextView) snackBar.getView().findViewById(android.support.design.R.id.snackbar_text);
-                int cText = ContextCompat.getColor(getContext(), R.color.colorPrimary);
-                textView.setTextColor(cText);
-                snackBar.show();
-                return true;
-            }
-        });
+                });
+        int cUndo = ContextCompat.getColor(getContext(), R.color.colorAccent);
+        snackBar.setActionTextColor(cUndo);
+        TextView textView = (TextView) snackBar.getView().findViewById(android.support.design.R.id.snackbar_text);
+        int cText = ContextCompat.getColor(getContext(), R.color.colorPrimary);
+        textView.setTextColor(cText);
+        snackBar.show();
     }
 
-    public void getSwipeItem(int position) { animateRemoval(position); }
-
     public void onItemClickListener(int position) {
-        if (position < 0) return;
-        Toast.makeText(getActivity(),"Swipe to delete", Toast.LENGTH_SHORT).show();
+        if (position >= 0) Toast.makeText(getActivity(),"Swipe to delete", Toast.LENGTH_SHORT).show();
     }
 
     public ListView getListView() {
@@ -244,6 +186,7 @@ public class DeleteMovieFragment extends ListFragment {
 
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
+            System.out.println("hello world");
             if (abs(e1.getY() - e2.getY()) > SW_MAX_OFF_PATH) return false;
             if (abs(e1.getX() - e2.getX()) > SW_MIN_DISTANCE && abs(velocityX) > SW_THRESHOLD_VELOCITY) {
                 int pos = listView.pointToPosition((int) e1.getX(), (int) e2.getY());
@@ -274,7 +217,7 @@ public class DeleteMovieFragment extends ListFragment {
 
     @Override
     public void onResume() {
-        getActivity().setTitle("Delete movie");
+        getActivity().setTitle(getContext().getString(R.string.deleteMovie));
         ListView listView = super.getListView();
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         fab.setVisibility(View.GONE);

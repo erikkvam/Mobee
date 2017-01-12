@@ -66,6 +66,12 @@ public class AboutHelpFragment extends Fragment {
         mListener = null;
     }
 
+    @Override
+    public void onResume() {
+        getActivity().setTitle(getContext().getString(R.string.about_help_fragment_name));
+        super.onResume();
+    }
+
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated

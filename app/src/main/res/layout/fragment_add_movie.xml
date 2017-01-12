@@ -24,7 +24,7 @@
             tools:text="@string/titleLabel" />
 
         <TextView
-            android:text="Year:"
+            android:text="@string/yearLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/yearLabel"
@@ -40,7 +40,7 @@
             android:layout_alignBottom="@+id/rateLabel"
             android:layout_toEndOf="@+id/rateLabel"
             android:layout_marginStart="12dp"
-        android:text="0" />
+            android:text="0" />
 
         <SeekBar
             android:layout_width="match_parent"
@@ -53,7 +53,7 @@
 
     <TextView
             android:id="@+id/countryLabel"
-            android:text="Country:"
+            android:text="@string/country"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
@@ -61,7 +61,7 @@
             android:layout_alignParentStart="true" />
 
     <TextView
-            android:text="Protagonist:"
+            android:text="@string/protagonistLabelAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/protagonistLabel"
@@ -70,7 +70,7 @@
             android:layout_alignParentStart="true" />
 
         <Button
-            android:text="SAVE"
+            android:text="@string/saveButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -94,7 +94,7 @@
 
     <TextView
         android:id="@+id/directorLabel"
-        android:text="Director:"
+        android:text="@string/directorLabelAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/countryLabel"
@@ -140,7 +140,7 @@
         android:layout_marginLeft="5dp"/>
 
     <TextView
-        android:text="Critics Rate:"
+        android:text="@string/rateLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/rateLabel"

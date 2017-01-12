@@ -138,8 +138,7 @@ public class AddMovieFragment extends Fragment {
 
     @Override
     public void onResume() {
-        getActivity().setTitle("Add movie");
-
+        getActivity().setTitle(getContext().getString(R.string.add_movie_fragment_name));
         super.onResume();
         FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab);
         fab.setVisibility(View.GONE);

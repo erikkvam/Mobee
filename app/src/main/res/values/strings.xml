@@ -34,4 +34,8 @@
     <string name="adding_a_moving_to_your_collection_obviously_to_do_that_you_can_either_press_the_button_floating_a_the_bottom_right_of_your_screen_or_clicking_on_add_movie_on_the_menu">Adding a movie to your collection, obviously. To do that you can either press the button floating a the bottom right of your screen or clicking on Add movie on the menu.</string>
     <string name="ugh_i_think_i_made_a_mistake_writing_the_data_how_can_i_delete_a_movie">Ugh. I think I made a mistake writing the data. How can I delete a movie?</string>
     <string name="relax_we_got_you_covered_just_click_on_the_delete_movie_item_of_the_menu_there_swipe_right_or_left_whatever_movie_entry_you_want_to_erase">Relax, we got you covered. Just click on the Delete movie item of the menu. There swipe right or left whatever movie entry you want to erase.</string>
+    <string name="yearLabel">Year:</string>
+    <string name="directorLabelAdd" translatable="false">Director:</string>
+    <string name="protagonistLabelAdd">Protagonist:</string>
+    <string name="saveButton">SAVE</string>
 </resources>

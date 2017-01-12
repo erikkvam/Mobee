@@ -26,4 +26,10 @@ public class TitleViewFragment extends ListFragment {
                 android.R.layout.simple_list_item_1, values);
         setListAdapter(adapter);
     }
+
+    @Override
+    public void onResume() {
+        getActivity().setTitle(getContext().getString(R.string.titles_fragment_name));
+        super.onResume();
+    }
 }

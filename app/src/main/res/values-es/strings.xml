@@ -7,10 +7,10 @@
     <string name="actor_search_hint">Buscar películas por actor</string>
     <string name="add_movie_fragment_name">Añadir película</string>
     <string name="adding_a_moving_to_your_collection_obviously_to_do_that_you_can_either_press_the_button_floating_a_the_bottom_right_of_your_screen_or_clicking_on_add_movie_on_the_menu">Añadiendo una película a tu colección, por supuesto. Lo puedes hacer con el botón que flota en la parte inferior derecha de la pantalla o clicando en Añadir película en el menú.</string>
-    <string name="cool_where_do_i_begin">Guai. Donde empiezo?</string>
-    <string name="country">País</string>
+    <string name="cool_where_do_i_begin">Genial. Por donde empiezo?</string>
+    <string name="country">País:</string>
     <string name="deleteMovie">Borrar película</string>
-    <string name="directorLabel">Dirigido por</string>
+    <string name="directorLabel">Dirigida por</string>
     <string name="mobee_is_an_app_that_let_s_you_manage_your_movie_collection">Mobee es una app que te permite organizar tu colección cinematográfica.</string>
     <string name="navigation_drawer_close">Cerrar el cajón de navegación</string>
     <string name="navigation_drawer_header_subtitle">Tu colección de películas</string>
@@ -28,4 +28,7 @@
     <string name="ugh_i_think_i_made_a_mistake_writing_the_data_how_can_i_delete_a_movie">Ups. Creo que me he equivocado con los datos. Cómo puedo borrar una película?</string>
     <string name="well_that_s_because_quot_mobee_quot_is_a_merging_of_quot_movie_quot_and_quot_bee_quot_bees_because_of_the_app_working_hard_to_provide_you_sweet_honey_and_such">Bien, porque \"Mobee\" es la fusión de película (\"movie\") y abeja (\"bee\") en inglés. Abejas porque el app trabaja duramente para proveerte de dulce miel i tal. ;-)</string>
     <string name="what_is_mobee">Qué es Mobee?</string>
+    <string name="yearLabel">Año:</string>
+    <string name="protagonistLabelAdd">Protagonista:</string>
+    <string name="saveButton">GUARDAR</string>
 </resources>

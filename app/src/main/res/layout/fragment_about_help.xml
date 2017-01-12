@@ -1,9 +1,16 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="edu.upc.fib.erik.Mobee.AboutHelpFragment">
+    android:layout_height="match_parent">
+    <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/listLayout"
+            tools:context="edu.upc.fib.erik.Mobee.AboutHelpFragment"
+            android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView1"
@@ -80,6 +87,5 @@
             android:text="@string/relax_we_got_you_covered_just_click_on_the_delete_movie_item_of_the_menu_there_swipe_right_or_left_whatever_movie_entry_you_want_to_erase"
             android:textSize="18sp"
             tools:text='Relax, we got you covered. Just click on the "Delete movie" item of the menu. There swipe right or left whatever movie entry you want to erase.' />
-
-
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
